@@ -2,7 +2,7 @@ package com.pduda.field;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class ShoppingCartTest {
@@ -13,7 +13,7 @@ public class ShoppingCartTest {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(10);
 
-        assertEquals(1, shoppingCart.numberOfProducts());
+        assertThat( shoppingCart.numberOfProducts()).isEqualTo(1);
     }
 
     @Test
@@ -21,7 +21,7 @@ public class ShoppingCartTest {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(10);
 
-        assertEquals(10, shoppingCart.calculateTotalPrice());
+        assertThat(shoppingCart.calculateTotalPrice()).isEqualTo(10);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ShoppingCartTest {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(100);
 
-        assertTrue(shoppingCart.hasDiscount());
+        assertThat(shoppingCart.hasDiscount()).isTrue();
     }
 
     @Test
@@ -37,7 +37,7 @@ public class ShoppingCartTest {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.add(99);
 
-        assertFalse(shoppingCart.hasDiscount());
+        assertThat(shoppingCart.hasDiscount()).isFalse();
     }
 
 }

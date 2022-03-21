@@ -3,8 +3,7 @@ package method;
 import com.pduda.method.AuthenticationService;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthenticationServiceTest {
 
@@ -12,14 +11,14 @@ public class AuthenticationServiceTest {
     public void administratorIsAlwaysAuthenticated() throws Exception {
         AuthenticationService service = new AuthenticationService();
         int adminId = 12345;
-        assertTrue(service.isAuthenticated(adminId));
+        assertThat(service.isAuthenticated(adminId)).isTrue();
     }
 
     @Test
     public void normalUserIsNotAuthenticatedInitially() throws Exception {
         AuthenticationService service = new AuthenticationService();
         int normalUserId = 11111;
-        assertFalse(service.isAuthenticated(normalUserId));
+        assertThat(service.isAuthenticated(normalUserId)).isFalse();
     }
 
 }
