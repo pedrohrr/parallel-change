@@ -1,20 +1,20 @@
 package com.pduda.field
 
 class ShoppingCart {
-    private var price = 0
+    private var prices = listOf<Int>();
     fun add(price: Int) {
-        this.price = price
+        this.prices = this.prices.plus(price);
     }
 
     fun calculateTotalPrice(): Int {
-        return price
+        return prices.sum()
     }
 
     fun hasDiscount(): Boolean {
-        return price >= 100
+        return prices.sum() >= 100
     }
 
     fun numberOfProducts(): Int {
-        return 1
+        return prices.size
     }
 }
